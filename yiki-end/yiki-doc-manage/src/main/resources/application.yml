@@ -1,0 +1,9 @@
+server:
+  port: 12800
+spring:
+  application:
+    name: yiki-doc-manage
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://139.159.134.136:8848

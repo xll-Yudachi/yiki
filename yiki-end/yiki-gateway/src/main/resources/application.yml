@@ -1,0 +1,21 @@
+server:
+  port: 12888
+
+spring:
+  application:
+    name: yiki-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://139.159.134.136:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: doc-manage
+          uri: lb://yiki-doc-manage
+          predicates:
+            - Path=/yiki-doc-manage/**
+          filters:
+            - StripPrefix=1
