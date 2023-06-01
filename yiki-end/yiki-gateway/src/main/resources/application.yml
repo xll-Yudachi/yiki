@@ -19,3 +19,14 @@ spring:
             - Path=/yiki-doc-manage/**
           filters:
             - StripPrefix=1
+        - id: oauth2
+          uri: lb://yiki-oauth2
+          predicates:
+            - Path=/yiki-oauth2/**
+          filters:
+            - StripPrefix=1
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    database: 1
