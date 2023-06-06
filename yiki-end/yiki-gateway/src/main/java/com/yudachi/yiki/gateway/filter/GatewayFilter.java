@@ -55,7 +55,7 @@ public class GatewayFilter implements GlobalFilter {
         if (ObjectUtils.isEmpty(token)) {
             return unAuth(resp, "缺失令牌,鉴权失败");
         }
-        String realToken = token.replace("bearer ", "");
+        String realToken = token.replace("Bearer ", "");
 
         String key = "access:" + realToken;
         String value = redisTemplate.opsForValue().get(key);

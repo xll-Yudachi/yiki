@@ -1,4 +1,4 @@
-package com.yudachi.yiki.gateway.exception;
+package com.yudachi.yiki.common.exception;
 
 import com.yudachi.yiki.common.code.ResponseCode;
 import lombok.Data;

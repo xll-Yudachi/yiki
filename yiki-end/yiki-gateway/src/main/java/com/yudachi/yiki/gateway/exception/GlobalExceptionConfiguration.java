@@ -2,6 +2,7 @@ package com.yudachi.yiki.gateway.exception;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yudachi.yiki.common.exception.CustomizeInfoException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 /**
  * @ClassName GlobalExceptionConfiguration
- * @Description 全局异常处理类
+ * @Description 网关全局异常处理类
  * @Author Yudachi
  */
 @Configuration

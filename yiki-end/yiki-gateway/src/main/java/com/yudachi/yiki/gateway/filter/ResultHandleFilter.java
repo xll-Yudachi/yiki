@@ -1,7 +1,12 @@
 package com.yudachi.yiki.gateway.filter;
 
+import cn.hutool.core.util.ObjectUtil;
+import com.alibaba.fastjson.JSON;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.yudachi.yiki.common.code.ResponseCode;
+import com.yudachi.yiki.common.response.GatewayErrorResponse;
+import com.yudachi.yiki.common.response.YikiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.reactivestreams.Publisher;
@@ -44,7 +49,7 @@ public class ResultHandleFilter implements GlobalFilter, Ordered {
             @Override
             public Mono<Void> writeWith(Publisher<? extends DataBuffer> body) {
 
-                if (getStatusCode().is2xxSuccessful() && body instanceof Flux){
+                if (body instanceof Flux){
                     String contentType = exchange.getAttribute(ServerWebExchangeUtils.ORIGINAL_RESPONSE_CONTENT_TYPE_ATTR);
                     if (StringUtils.isNotBlank(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)){
 
@@ -59,10 +64,23 @@ public class ResultHandleFilter implements GlobalFilter, Ordered {
                                 list.add(new String(content, StandardCharsets.UTF_8));
                             });
                             String responseData = joiner.join(list);
+
+                            // 结果处理 (处理异常返回结果)
+                            if (getStatusCode().isError()){
+                                GatewayErrorResponse gatewayErrorResponse = JSON.parseObject(responseData, GatewayErrorResponse.class);
+
+                                log.error(JSON.toJSONString(gatewayErrorResponse));
+
+                                ResponseCode responseCode = ResponseCode.valueOf(gatewayErrorResponse.getMessage());
+
+                                if (ObjectUtil.isNull(responseCode)){
+                                    responseData = JSON.toJSONString(YikiResponse.createResponse(gatewayErrorResponse.getStatus(), gatewayErrorResponse.getError()));
+                                }else{
+                                    responseData = JSON.toJSONString(YikiResponse.createResponse(responseCode.getCode(), responseCode.getDesc()));
+                                }
+                            }
+
                             System.out.println("responseData："+responseData);
-
-                            // 结果处理
-
 
                             byte[] updateContent = new String(responseData.getBytes(), StandardCharsets.UTF_8).getBytes();
                             response.getHeaders().setContentLength(updateContent.length);

@@ -2,8 +2,8 @@ package com.yudachi.yiki.gateway.filter;
 
 import com.yudachi.yiki.common.Constants.MethodType;
 import com.yudachi.yiki.common.code.ResponseCode;
+import com.yudachi.yiki.common.exception.CustomizeInfoException;
 import com.yudachi.yiki.common.request.BodyHolder;
-import com.yudachi.yiki.gateway.exception.CustomizeInfoException;
 import com.yudachi.yiki.gateway.utils.UrlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -14,6 +14,7 @@ import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.server.PathContainer;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -22,7 +23,7 @@ import reactor.core.publisher.Mono;
  * ParameterVerificationFilter的作用是为了校验参数，保证请求唯一性
  */
 @Slf4j
-
+@Component
 public class ParameterVerificationFilter implements Ordered, GlobalFilter {
 
 
