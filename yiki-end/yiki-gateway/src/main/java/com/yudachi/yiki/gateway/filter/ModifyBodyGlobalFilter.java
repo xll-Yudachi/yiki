@@ -1,6 +1,7 @@
 package com.yudachi.yiki.gateway.filter;
 
-import com.yudachi.yiki.common.utils.UrlUtils;
+import com.yudachi.yiki.common.request.BodyHolder;
+import com.yudachi.yiki.gateway.utils.UrlUtils;
 import io.netty.buffer.ByteBufAllocator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -49,22 +50,24 @@ public class ModifyBodyGlobalFilter implements Ordered, GlobalFilter {
                             byte[] bytes = new byte[buffer.readableByteCount()];
                             buffer.read(bytes); // 不调用read方法，body会乱码
                             try {
-                                holder.bodyString = new String(bytes, "utf-8");
+                                holder.setBodyString(new String(bytes, "utf-8"));
                             } catch (UnsupportedEncodingException e) {
                                 throw new RuntimeException(e);
                             }
-                            log.info("请求参数Body：" + holder.bodyString);
+                            log.info("请求参数Body：" + holder.getBodyString());
 
                         });
-                        if (StringUtils.isNotBlank(holder.bodyString)) {
+                        if (StringUtils.isNotBlank(holder.getBodyString())) {
                             try {
 
-                                holder.bodyString += "&grant_type=password&client_id=client_id&client_secret=client_secret";
+                                String newBodyString = holder.getBodyString();
 
-                                holder.lenth = holder.bodyString.getBytes().length;
+                                holder.setBodyString(holder.getBodyString() + "&grant_type=password&client_id=client_id&client_secret=client_secret");
+
+                                holder.setLenth(holder.getBodyString().getBytes().length);
 
                                 DataBuffer dataBuffer = dataBufferFactory.allocateBuffer();
-                                dataBuffer.write(holder.bodyString.getBytes(StandardCharsets.UTF_8));
+                                dataBuffer.write(holder.getBodyString().getBytes(StandardCharsets.UTF_8));
 
                                 return Flux.just(dataBuffer);
                             } catch (Exception e) {
@@ -81,7 +84,7 @@ public class ModifyBodyGlobalFilter implements Ordered, GlobalFilter {
 
                         // 不能直接使用 HttpHeaders，这个请求头是只读的，不允许修改
 
-                        ServerHttpRequest newRequest = exchange.getRequest().mutate().header(HttpHeaders.CONTENT_LENGTH, Integer.toString(holder.lenth)).build();
+                        ServerHttpRequest newRequest = exchange.getRequest().mutate().header(HttpHeaders.CONTENT_LENGTH, Integer.toString(holder.getLenth())).build();
 
                         return newRequest.getHeaders();
                     }
@@ -101,8 +104,4 @@ public class ModifyBodyGlobalFilter implements Ordered, GlobalFilter {
         return 0;
     }
 
-    private class BodyHolder {
-        String bodyString;
-        int lenth;
-    }
 }

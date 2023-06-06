@@ -12,7 +12,9 @@ public enum ResponseCode {
     SUCCESS(0,"SUCCESS"),
     ERROR(1,"ERROR"),
 
-    AUTHORIZATIONERROR(401,"AUTHORIZATIONERROR");
+    AUTHORIZATIONERROR(401,"AUTHORIZATIONERROR"),
+
+    NOTONLYONEREQUEST(1001, "NOTONLYONEREQUEST");
     //(1)编写所需的变量
     private final int code;
     private final String desc;

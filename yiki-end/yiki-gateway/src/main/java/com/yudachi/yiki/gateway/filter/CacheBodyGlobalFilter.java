@@ -44,7 +44,7 @@ public class CacheBodyGlobalFilter implements Ordered, GlobalFilter {
                     });
         }
     }
-	    //尽可能早的对这个请求进行封装
+	//尽可能早的对这个请求进行封装
     @Override
     public int getOrder() {
         return Ordered.HIGHEST_PRECEDENCE;

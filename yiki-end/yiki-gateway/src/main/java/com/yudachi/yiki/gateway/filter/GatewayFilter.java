@@ -3,7 +3,7 @@ package com.yudachi.yiki.gateway.filter;
 import com.alibaba.fastjson.JSON;
 import com.yudachi.yiki.common.code.ResponseCode;
 import com.yudachi.yiki.common.response.YikiResponse;
-import com.yudachi.yiki.common.utils.UrlUtils;
+import com.yudachi.yiki.gateway.utils.UrlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
