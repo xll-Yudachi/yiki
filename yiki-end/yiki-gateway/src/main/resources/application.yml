@@ -16,13 +16,13 @@ spring:
         - id: doc-manage
           uri: lb://yiki-doc-manage
           predicates:
-            - Path=/yiki-doc-manage/**
+            - Path=/docManageApi/**
           filters:
             - StripPrefix=1
         - id: oauth2
           uri: lb://yiki-oauth2
           predicates:
-            - Path=/yiki-oauth2/**
+            - Path=/oauth2Api/**
           filters:
             - StripPrefix=1
   redis:

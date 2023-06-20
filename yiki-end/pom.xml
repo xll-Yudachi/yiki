@@ -26,10 +26,16 @@
 		<spring.cloud.alibaba.nacos.version>2.2.0.RELEASE</spring.cloud.alibaba.nacos.version>
 		<fastjson.version>1.2.83</fastjson.version>
 		<lombok.version>1.18.16</lombok.version>
+		<hutool.version>5.8.17</hutool.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
