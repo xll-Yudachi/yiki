@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "yikifont"; /* Project id 4118961 */
+    /* Color fonts */
+    src: url('iconfont.woff2?t=1686709098801') format('woff2'),
+    url('iconfont.woff?t=1686709098801') format('woff'),
+    url('iconfont.ttf?t=1686709098801') format('truetype');
+}
+
+.yikifont {
+    font-family: "yikifont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: black;
+}
+
+.yiki-icon-zhongmingming:before {
+    content: "\e71f";
+}
+
+.yiki-icon-share {
+    font-size: 14px;
+    padding: 1px;
+}
+
+.yiki-icon-share:before {
+    content: "\e71a";
+}
+
+.yiki-icon-link:before {
+    content: "\e6c3";
+}
+
+.yiki-icon-copy-rect {
+    font-size: 14px;
+    padding: 1px;
+}
+
+.yiki-icon-copy-rect:before {
+    content: "\ea30";
+}
+
+.yiki-icon-jianqie {
+    font-size: 14px;
+    padding: 1px;
+}
+
+.yiki-icon-jianqie:before {
+    content: "\e619";
+}
+
+.yiki-icon-intersection:before {
+    content: "\e8a0";
+}
+
+.yiki-icon-goutong:before {
+    content: "\e607";
+}
+
+.yiki-icon-show:before {
+    content: "\e636";
+}
+
+.yiki-icon-shangchuandaochu:before {
+    content: "\e8c6";
+}
+
+.yiki-icon-mobanguanli:before {
+    content: "\e605";
+}
+
+.yiki-icon-wenjianjia:before {
+    content: "\ec17";
+}
+
+.yiki-icon-word:before {
+    content: "\e603";
+}
+
+.yiki-icon-excel:before {
+    content: "\e806";
+}
+
+.yiki-icon-markdown:before {
+    content: "\e6ff";
+}
+
+.yiki-icon-list-view:before {
+    content: "\e60c";
+}
+

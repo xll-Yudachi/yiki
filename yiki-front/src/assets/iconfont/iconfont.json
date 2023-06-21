@@ -1,0 +1,114 @@
+{
+  "id": "4118961",
+  "name": "yiki",
+  "font_family": "yikifont",
+  "css_prefix_text": "yiki-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1374369",
+      "name": "重命名",
+      "font_class": "zhongmingming",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "10564372",
+      "name": "share",
+      "font_class": "share",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "16619088",
+      "name": "link",
+      "font_class": "link",
+      "unicode": "e6c3",
+      "unicode_decimal": 59075
+    },
+    {
+      "icon_id": "18171226",
+      "name": "复制,重复,重叠",
+      "font_class": "copy-rect",
+      "unicode": "ea30",
+      "unicode_decimal": 59952
+    },
+    {
+      "icon_id": "23995126",
+      "name": "剪切",
+      "font_class": "jianqie",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "33874571",
+      "name": "intersection",
+      "font_class": "intersection",
+      "unicode": "e8a0",
+      "unicode_decimal": 59552
+    },
+    {
+      "icon_id": "1263255",
+      "name": "沟通",
+      "font_class": "goutong",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "9512634",
+      "name": "演示",
+      "font_class": "show",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "1727451",
+      "name": "219上传、导出",
+      "font_class": "shangchuandaochu",
+      "unicode": "e8c6",
+      "unicode_decimal": 59590
+    },
+    {
+      "icon_id": "3239728",
+      "name": "模板管理",
+      "font_class": "mobanguanli",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "4893191",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "ec17",
+      "unicode_decimal": 60439
+    },
+    {
+      "icon_id": "8940192",
+      "name": "word",
+      "font_class": "word",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11447686",
+      "name": "excel2",
+      "font_class": "excel",
+      "unicode": "e806",
+      "unicode_decimal": 59398
+    },
+    {
+      "icon_id": "11993026",
+      "name": "markdown",
+      "font_class": "markdown",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "25894536",
+      "name": "任务",
+      "font_class": "list-view",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}
